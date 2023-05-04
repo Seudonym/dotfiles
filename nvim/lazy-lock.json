@@ -1,0 +1,9 @@
+{
+  "aerial.nvim": { "branch": "master", "commit": "d8f2699f7ae0e5eb62424d7b2ad80ce30179ee92" },
+  "lazy.nvim": { "branch": "main", "commit": "ceb413678dfcf3d5455208959185e3db1f7892c7" },
+  "lualine.nvim": { "branch": "master", "commit": "84ffb80e452d95e2c46fa29a98ea11a240f7843e" },
+  "nvim-tree.lua": { "branch": "master", "commit": "53295de04d265fba695ec5a21912bdf36647dbad" },
+  "nvim-web-devicons": { "branch": "master", "commit": "b34362b20a4942b3245f958e73ebe1b09b020ad1" },
+  "nvterm": { "branch": "main", "commit": "fea9cc4eb025c1dd4d2328308a1c4bbe7e8b7640" },
+  "tokyonight.nvim": { "branch": "main", "commit": "f2ed28707a0ad49047d9b733395ea205ea09f517" }
+}
