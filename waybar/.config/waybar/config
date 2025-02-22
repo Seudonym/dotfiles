@@ -70,7 +70,7 @@
     "interface": "wlp3s0",
     "format-wifi": "  {signalStrength}%",
     "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "", //An empty format will hide the module.
+    "format-disconnected": "  X", 
     "tooltip-format-wifi": "{essid} via {ifname}",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
