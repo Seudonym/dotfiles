@@ -6,8 +6,6 @@ setopt share_history
 setopt hist_ignore_space
 setopt inc_append_history
 
-autoload -Uz compinit && compinit
-
 bindkey '\e[3~' delete-char
 bindkey '^[[3;5~' kill-word
 bindkey '^H' backward-delete-word
@@ -16,6 +14,9 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
+alias ls="ls --color=auto"
+
+autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 precmd() { vcs_info }
 

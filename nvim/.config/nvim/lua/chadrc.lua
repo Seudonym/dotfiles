@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  --theme = "chadwal",
+  theme = "chadwal",
 
   hl_override = {
     Comment = { italic = true },
