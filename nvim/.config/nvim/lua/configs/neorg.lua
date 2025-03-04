@@ -2,6 +2,7 @@ require("neorg").setup({
   load = {
     ["core.defaults"] = {},
     ["core.concealer"] = {},
+    ["core.summary"] = {},
     ["core.keybinds"] = {
       config = {
         default_keybinds = true,
@@ -10,8 +11,7 @@ require("neorg").setup({
     ["core.dirman"] = {
       config = {
         workspaces = {
-          notes = "~/notes",
-          personal = "~/personal"
+          vault = "~/vault"
         },
       },
     },

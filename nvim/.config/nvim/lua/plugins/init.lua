@@ -1,5 +1,5 @@
 return {
-  -- { "williamboman/mason.nvim", enabled = false },
+  -- { "nvim-tree/nvim-tree.lua", enabled = false },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -34,5 +34,10 @@ return {
     "3rd/image.nvim",
     opts = {}
   },
-
+  -- {
+  --   'echasnovski/mini.files',
+  --   version = '*',
+  --   opts = {},
+  --   lazy = false,
+  -- }
 }
