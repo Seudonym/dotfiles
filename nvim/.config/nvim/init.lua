@@ -46,3 +46,4 @@ autocmd("Signal", {
     require('nvchad.utils').reload()
   end
 })
+

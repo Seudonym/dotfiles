@@ -34,6 +34,10 @@ return {
     "3rd/image.nvim",
     opts = {}
   },
+  {
+    "github/copilot.vim",
+    event = "BufEnter"
+  }
   -- {
   --   'echasnovski/mini.files',
   --   version = '*',
