@@ -7,7 +7,7 @@
 
 	"modules-left": [
 		"hyprland/workspaces",
-    "cava",
+    "mpris"
 	],
 	"modules-center": [
 		"clock#1",
@@ -20,7 +20,6 @@
 		"memory",
 		"cpu",
 		"battery",
-		"disk",
 		"tray"
 	],
 
@@ -28,6 +27,18 @@
 		"disable-scroll": true,
 		"format": "{name}"
 	},
+  "mpris": {
+    "dynamic-order" : ["title", "artist", "position", "length"],
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+  },
 
 	"clock#1": {
 		"format": "{:%a}",
@@ -35,11 +46,11 @@
 	},
 	"clock#2": {
 		"format": "{:%H:%M}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"tooltip": false
 	},
 	"clock#3": {
-		"format": "{:%m-%d}",
-		"tooltip": false
+		"format": "{:%d-%m}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
 	},
 
   "cava": {
@@ -62,8 +73,8 @@
 			]
 		},
 		"scroll-step": 5,
-		"on-click": "pamixer -t",
-		"on-click-right": "pavucontrol"
+		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+		"on-right-click": "pavucontrol",
 	},
 
   "network": {
@@ -75,7 +86,7 @@
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "ghostty -e \"sleep 0.5; nmtui\""
+    "on-click": "ghostty -e \"nmcli d w l; sleep 0.5; nmtui\""
   },
 
 	"memory": {
@@ -107,6 +118,6 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 20
+		"icon-size": 10
 	}
 }

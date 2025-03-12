@@ -1,5 +1,5 @@
 * {
-	font-size: 20px;
+	font-size: 16px;
 	font-family: JetBrains Mono NerdFont;
 }
 
@@ -23,12 +23,12 @@ window#waybar {
 }
 
 #workspaces button {
-	padding: 0 2px;
+  padding: 0 3px;
 	color: #fdf6e3;
 }
 
 #workspaces button.active {
-  color: gold;
+  color: lime;
 }
 #workspaces button.focused {
 	color: #268bd2;
@@ -38,13 +38,8 @@ window#waybar {
 	text-shadow: inherit;
 }
 #workspaces button:hover {
-	background: #0a0a0a;
+	background: #1d1d1d;
 	border: #000000;
-	padding: 0 3px;
-}
-
-#cava {
-	color: #c25cf4;
 }
 
 #wireplumber {
@@ -72,10 +67,13 @@ window#waybar {
 #network,
 #cpu,
 #battery,
-#disk {
+#disk,
+#tray{
 	padding: 0 10px;
 }
 
-#cava {
-  padding: 0 20px;
+#mpris {
+  padding: 0 40px;
+  color: #26fbd2;
 }
+
