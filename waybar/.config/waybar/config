@@ -29,6 +29,8 @@
 	},
   "mpris": {
     "dynamic-order" : ["title", "artist", "position", "length"],
+    "title-len" : 35,
+    "artist-len" : 20,
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "player-icons": {
@@ -118,6 +120,7 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 10
+		"icon-size": 14,
+    "spacing": 6 
 	}
 }

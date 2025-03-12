@@ -77,3 +77,6 @@ window#waybar {
   color: #26fbd2;
 }
 
+#tray {
+  border-left: 1px solid white;
+}
