@@ -18,7 +18,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc", "rust", "cpp"
+        "vim", "lua", "vimdoc", "rust", "cpp", "javascript", "typescript", "tsx"
       },
     },
   },
@@ -37,11 +37,12 @@ return {
   {
     "github/copilot.vim",
     event = "BufEnter"
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      require "configs.dapui"
+    end
   }
-  -- {
-  --   'echasnovski/mini.files',
-  --   version = '*',
-  --   opts = {},
-  --   lazy = false,
-  -- }
 }
