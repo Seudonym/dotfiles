@@ -11,6 +11,10 @@ local options = {
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
     javascriptreact = { "prettierd" },
+    python = { "autopep8" },
+    json = { "prettierd" },
+    nix = { "nixfmt" },
+    rust = { "rustfmt" }
   },
 
   -- format_on_save = {
