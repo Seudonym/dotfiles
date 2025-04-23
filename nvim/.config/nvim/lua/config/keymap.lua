@@ -23,6 +23,13 @@ vim.keymap.set("n", "<leader>fm", function()
   require("conform").format()
 end, { desc = "Format the current buffer" })
 
+-- Copilot remap
+vim.keymap.set("i", "<A-l>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
 -- Terminal
 vim.keymap.set("n", "<C-`>", function()
   require("snacks").terminal.toggle()
