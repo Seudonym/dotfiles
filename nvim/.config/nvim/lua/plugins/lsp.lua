@@ -199,6 +199,7 @@ return {
     local servers = {
       bashls = {},
       rust_analyzer = {},
+      pylsp = {},
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},
