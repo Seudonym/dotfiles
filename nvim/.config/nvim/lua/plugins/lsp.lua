@@ -199,7 +199,10 @@ return {
     local servers = {
       bashls = {},
       rust_analyzer = {},
-      pylsp = {},
+      jedi_language_server = {},
+      glsl_analyzer = {
+        filetypes = { "glsl", "vsh", "fsh" },
+      },
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},

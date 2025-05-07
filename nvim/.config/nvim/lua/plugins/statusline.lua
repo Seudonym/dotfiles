@@ -1,8 +1,8 @@
-return { 
-  'echasnovski/mini.statusline', 
-  version = '*',
+return {
+  "echasnovski/mini.statusline",
+  version = "*",
   dependencies = {
-    'echasnovski/mini.icons', 
+    "echasnovski/mini.icons",
   },
-  opts = {}
+  opts = {},
 }

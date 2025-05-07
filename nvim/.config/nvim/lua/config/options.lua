@@ -81,27 +81,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Transparency toggle
-local transparent = false
+local transparent = true
 local function toggle_transparent()
   local current_theme = vim.g.colors_name
   if transparent then
     -- Set background to opaque (reset highlights)
     vim.cmd("colorscheme " .. current_theme)
-    vim.cmd("silent !kitty @ set-spacing padding=0 margin=0")
   else
     -- Set background to transparent
-    vim.cmd([[
-      highlight Normal guibg=NONE ctermbg=NONE
-      highlight NonText guibg=NONE ctermbg=NONE
-    ]])
-    vim.cmd("silent !kitty @ set-spacing padding=default margin=default")
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
   end
   transparent = not transparent
 end
 vim.keymap.set("n", "<leader>tt", toggle_transparent, { desc = "Toggle transparent background" })
 
 local autocmd = vim.api.nvim_create_autocmd
-
+autocmd("VimEnter", {
+  command = ":silent !kitty @ set-spacing padding=0 margin=0",
+})
 autocmd("VimLeavePre", {
   command = ":silent !kitty @ set-spacing padding=default margin=default",
 })
