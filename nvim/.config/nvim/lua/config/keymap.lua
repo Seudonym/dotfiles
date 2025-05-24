@@ -9,6 +9,7 @@ vim.keymap.set(
   "<CMD>FzfLua files cwd=~/.config/nvim<CR>",
   { desc = "Fuzzy find files in current directory" }
 )
+vim.keymap.set("n", "<leader>fg", "<CMD>FzfLua live_grep_native<CR>", { desc = "Find current word" })
 vim.keymap.set("n", "<leader>fw", "<CMD>FzfLua grep_cword<CR>", { desc = "Find current word" })
 vim.keymap.set("n", "<leader>fW", "<CMD>FzfLua grep_cWORD<CR>", { desc = "Find current WORD" })
 vim.keymap.set("n", "<leader><leader>", "<CMD>FzfLua buffers<CR>", { desc = "Find current WORD" })

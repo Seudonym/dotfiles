@@ -199,11 +199,14 @@ return {
     local servers = {
       bashls = {},
       rust_analyzer = {},
+      ts_ls = {},
+      tailwindcss = {},
+      emmet_ls = {},
       jedi_language_server = {},
       glsl_analyzer = {
         filetypes = { "glsl", "vsh", "fsh" },
       },
-      -- clangd = {},
+      clangd = {},
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
