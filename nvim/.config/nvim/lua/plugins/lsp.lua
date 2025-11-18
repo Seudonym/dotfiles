@@ -197,16 +197,24 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      bashls = {},
       rust_analyzer = {},
+      -- These all need npm
+      -- -----------------
+      -- bashls = {},
       ts_ls = {},
       tailwindcss = {},
       emmet_ls = {},
-      jedi_language_server = {},
-      glsl_analyzer = {
-        filetypes = { "glsl", "vsh", "fsh" },
-      },
+      -- -----------------
+      -- jedi_language_server = {},
+      ty = {},
+      ruff = {},
+      -- glsl_analyzer = {
+      --   filetypes = { "glsl", "vsh", "fsh" },
+      -- },
       clangd = {},
+      docker_language_server = {},
+      docker_compose_language_service = {},
+      cmake = {},
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
@@ -243,6 +251,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "stylua", -- Used to format Lua code
+      "prettier",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
