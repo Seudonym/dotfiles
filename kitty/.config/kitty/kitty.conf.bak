@@ -2953,6 +2953,6 @@ map f11 toggle_fullscreen
 
 
 # BEGIN_KITTY_THEME
-# Wombat
+# Cyberpunk
 include current-theme.conf
 # END_KITTY_THEME

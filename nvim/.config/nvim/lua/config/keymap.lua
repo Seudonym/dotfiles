@@ -1,3 +1,4 @@
+-- vim.keymap.set("n", "<leaader>o", ":update<CR>:source<CR>", { desc = "Update current file and source config" })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- FzfLua keymaps
