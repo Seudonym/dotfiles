@@ -1,4 +1,4 @@
--- vim.keymap.set("n", "<leaader>o", ":update<CR>:source<CR>", { desc = "Update current file and source config" })
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Update current file and source config" })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- FzfLua keymaps
@@ -47,3 +47,20 @@ end, { desc = "Open new terminal" })
 vim.keymap.set("n", "<leader>z", function()
   require("snacks").zen()
 end, { desc = "Toggle zen mode" })
+
+-- Repl
+vim.keymap.set("n", "<leader>r", "<Plug>(ReplSendLine)", { desc = "Send line to REPL" })
+vim.keymap.set("v", "<leader>r", "<Plug>(ReplSendVisual)", { desc = "Send selection to REPL" })
+vim.keymap.set("n", "<leader>c", "<Plug>(ReplSendCell)", { desc = "Send cell to REPL" })
+--
+-- Molten REPL
+-- vim.keymap.set("n", "<leader>mi", ":MoltenInit<CR>", { silent = true, desc = "Initialize the plugin" })
+-- vim.keymap.set("n", "<leader>e", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
+-- vim.keymap.set("n", "<leader>r", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
+-- vim.keymap.set("n", "<leader>rr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
+-- vim.keymap.set(
+--   "v",
+--   "<leader>r",
+--   ":<C-u>MoltenEvaluateVisual<CR>gv",
+--   { silent = true, desc = "evaluate visual selection" }
+-- )

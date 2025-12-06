@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Python provider with a venv
+vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
+-- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
