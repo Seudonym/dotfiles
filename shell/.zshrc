@@ -26,16 +26,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-. "$HOME/.local/bin/env"
 export EDITOR="nvim"
 
-# fnm
-FNM_PATH="/home/wahid/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
-eval "$(fnm env --use-on-cd --shell zsh)"
 
 # nnn
 n ()
@@ -70,8 +62,3 @@ n ()
 }
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='p:preview-tui'
-
-export PATH=/opt/cuda/bin:$PATH
-export PATH=/home/wahid/dev/v/:$PATH
-export PATH="$PATH:/home/wahid/ngc-cli"
-export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH

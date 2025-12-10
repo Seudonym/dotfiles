@@ -197,22 +197,22 @@ return {
       -- These all need npm
       -- -----------------
       -- bashls = {},
-      ts_ls = {},
-      tailwindcss = {},
-      emmet_ls = {},
+      -- ts_ls = {},
+      -- tailwindcss = {},
+      -- emmet_ls = {},
       -- -----------------
       -- jedi_language_server = {},
       ty = {},
       ruff = {},
-      v_analyzer = {},
-      verible = {},
+      -- v_analyzer = {},
+      -- verible = {},
       -- glsl_analyzer = {
       --   filetypes = { "glsl", "vsh", "fsh" },
       -- },
       clangd = {},
-      docker_language_server = {},
-      docker_compose_language_service = {},
-      cmake = {},
+      -- docker_language_server = {},
+      -- docker_compose_language_service = {},
+      -- cmake = {},
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
@@ -249,7 +249,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "stylua", -- Used to format Lua code
-      "prettier",
+      -- "prettier",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
