@@ -4,6 +4,12 @@ vim.g.maplocalleader = " "
 -- Python provider with a venv
 vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
 -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
+--
+-- Sanity
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.laststatus = 3
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -73,34 +79,34 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- Transparency toggle
 local transparent = true
 local function toggle_transparent()
-  local current_theme = vim.g.colors_name
-  if transparent then
-    -- Set background to opaque (reset highlights)
-    vim.cmd("colorscheme " .. current_theme)
-  else
-    -- Set background to transparent
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-  end
-  transparent = not transparent
+	local current_theme = vim.g.colors_name
+	if transparent then
+		-- Set background to opaque (reset highlights)
+		vim.cmd("colorscheme " .. current_theme)
+	else
+		-- Set background to transparent
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+	end
+	transparent = not transparent
 end
 vim.keymap.set("n", "<leader>tt", toggle_transparent, { desc = "Toggle transparent background" })
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("VimEnter", {
-  command = ":silent !kitty @ set-spacing padding=0 margin=0",
+	command = ":silent !kitty @ set-spacing padding=0 margin=0",
 })
 autocmd("VimLeavePre", {
-  command = ":silent !kitty @ set-spacing padding=default margin=default",
+	command = ":silent !kitty @ set-spacing padding=default margin=default",
 })
