@@ -1,6 +1,7 @@
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Update current file and source config" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Update current file and source config" })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<C-n>", "<CMD>NvimTreeToggle<CR>", { desc = "Toggle tree" })
 
 -- FzfLua keymaps
 vim.keymap.set("n", "<leader>ff", "<CMD>FzfLua files<CR>", { desc = "Fuzzy find files in current directory" })
@@ -33,17 +34,6 @@ vim.keymap.set("i", "<A-l>", 'copilot#Accept("\\<CR>")', {
 	replace_keycodes = false,
 })
 vim.g.copilot_no_tab_map = true
-
--- Terminal
-vim.keymap.set("n", "<C-`>", function()
-	require("snacks").terminal.toggle()
-end, { desc = "Toggle terminal" })
-vim.keymap.set("t", "<C-`>", function()
-	require("snacks").terminal.toggle()
-end, { desc = "Toggle terminal" })
-vim.keymap.set("n", "<C-n>", function()
-	require("snacks").terminal.open()
-end, { desc = "Open new terminal" })
 
 -- Zen
 vim.keymap.set("n", "<leader>z", function()
