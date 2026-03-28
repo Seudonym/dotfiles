@@ -62,6 +62,7 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/nvim-orgmode/orgmode" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/saghen/blink.cmp",           version = vim.version.range('*') },
 })
@@ -84,10 +85,34 @@ require("mini.animate").setup()
 require("mini.icons").setup()
 require("mini.tabline").setup()
 
+-- oil
 require("oil").setup({})
 
+-- org
+require("orgmode").setup({
+  org_agenda_files = '~/org/**/*',
+  org_default_notes_file = '~/org/inbox.org',
+  org_capture_templates = {
+    t = {
+      description = 'Todo',
+      template = '* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u',
+      target = '~/org/todos.org',
+    },
+    i = {
+      description = 'Idea',
+      template = '* %? :IDEA:\n  %u',
+      target = '~/org/ideas.org',
+    },
+    p = {
+      description = 'Project',
+      template = '* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:',
+      target = '~/org/projects.org',
+    },
+  }
+})
+
 -- lsp
-local servers = { "lua_ls", "ty", "rust_analyzer" }
+local servers = { "org", "lua_ls", "ty", "rust_analyzer" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
@@ -145,6 +170,10 @@ map({ "n", "t" }, "<A-Left>", "<C-\\><C-n><CMD>vertical resize +2<CR>i", { desc 
 
 -- oil
 map("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open Oil" })
+
+-- org
+map("n", "<leader>oc", "<CMD>OrgCapture<CR>", { desc = "Org: Capture" })
+map("n", "<leader>oa", "<CMD>OrgAgenda<CR>", { desc = "Org: Agenda" })
 
 -- lsp
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format current buffer" })
