@@ -220,7 +220,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 map("n", "<leader>ff", function()
-  pick.builtin.files({ tool = "git" })
+  pick.builtin.files({ tool = "fd" })
 end, { desc = "Find files (mini.pick)" })
 
 map("n", "<leader>fg", function()
@@ -250,7 +250,7 @@ end, { desc = "Resume last picker (mini.pick)" })
 map("n", "<leader>fc", function()
   pick.builtin.files({
     cwd = vim.fn.expand("~/.config/nvim"),
-    tool = "git",
+    tool = "fd",
   })
 end, { desc = "Find config files (mini.pick)" })
 
