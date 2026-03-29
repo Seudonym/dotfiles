@@ -109,6 +109,7 @@ fi
 
 alias ls="exa"
 alias cd="z"
+alias ssh="kitty +kitten ssh"
 
 
 eval "$(zoxide init zsh)"

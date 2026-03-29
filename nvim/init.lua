@@ -81,7 +81,11 @@ require("mini.surround").setup()
 require("mini.pairs").setup()
 require("mini.statusline").setup()
 require("mini.indentscope").setup()
-require("mini.animate").setup()
+require("mini.animate").setup({
+  cursor = {
+    enable = false
+  }
+})
 require("mini.icons").setup()
 require("mini.tabline").setup()
 
