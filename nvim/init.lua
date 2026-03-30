@@ -64,6 +64,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
+  { src = "https://github.com/rafamadriz/friendly-snippets" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 
@@ -98,10 +99,8 @@ require("blink.cmp").setup({
 })
 
 require("conform").setup({
-  default_format_opts = { lsp_format = "fallback" },
   format_on_save = {
     timeout_ms = 500,
-    lsp_format = "fallback",
   },
   formatters_by_ft = {
     lua = { "stylua" },
@@ -122,10 +121,24 @@ require("conform").setup({
 })
 
 -- treesitter
-local langs = { "lua", "rust", "typescript", "javascript", "tsx", "jsx", "python", "c", "cpp", "html", "css" }
-require("nvim-treesitter").install(langs)
+local treesitter_parsers =
+  { "lua", "rust", "typescript", "javascript", "tsx", "jsx", "python", "c", "cpp", "html", "css" }
+local treesitter_filetypes = {
+  "lua",
+  "rust",
+  "typescript",
+  "javascript",
+  "typescriptreact",
+  "javascriptreact",
+  "python",
+  "c",
+  "cpp",
+  "html",
+  "css",
+}
+require("nvim-treesitter").install(treesitter_parsers)
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = langs,
+  pattern = treesitter_filetypes,
   callback = function()
     vim.treesitter.start()
     vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
