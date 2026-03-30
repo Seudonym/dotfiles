@@ -18,6 +18,7 @@ vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
+vim.opt.foldlevel = 99
 
 local function pack_clean()
   local active_plugins = {}
@@ -57,70 +58,25 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Plugins
 vim.pack.add({
+  -- main
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/lewis6991/gitsigns.nvim" },
+  { src = "https://github.com/saghen/blink.cmp",                       version = vim.version.range('*') },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+
+  -- qol
   { src = "https://github.com/dasupradyumna/midnight.nvim" },
   { src = "https://github.com/Nvchad/nvterm" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/nvim-mini/mini.nvim" },
-  { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-orgmode/orgmode" },
-  { src = "https://github.com/lewis6991/gitsigns.nvim" },
-  { src = "https://github.com/saghen/blink.cmp",           version = vim.version.range('*') },
+  { src = "https://github.com/nvim-mini/mini.nvim" },
 })
 
-vim.cmd.colorscheme("midnight")
-
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
-
-require("nvterm").setup()
-require("gitsigns").setup()
-
--- mini
-require("mini.pick").setup()
-require("mini.surround").setup()
-require("mini.pairs").setup()
-require("mini.statusline").setup()
-require("mini.indentscope").setup()
-require("mini.animate").setup({
-  cursor = {
-    enable = false
-  }
-})
-require("mini.icons").setup()
-require("mini.tabline").setup()
-
--- oil
+-- Plugin setup
+-- == main
 require("oil").setup({})
-
--- org
-require("orgmode").setup({
-  org_agenda_files = '~/org/**/*',
-  org_default_notes_file = '~/org/inbox.org',
-  org_capture_templates = {
-    t = {
-      description = 'Todo',
-      template = '* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u',
-      target = '~/org/todos.org',
-    },
-    i = {
-      description = 'Idea',
-      template = '* %? :IDEA:\n  %u',
-      target = '~/org/ideas.org',
-    },
-    p = {
-      description = 'Project',
-      template = '* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:',
-      target = '~/org/projects.org',
-    },
-  }
-})
-
--- lsp
-local servers = { "org", "lua_ls", "ty", "rust_analyzer" }
-for _, server in ipairs(servers) do
-  vim.lsp.enable(server)
-end
-
+require("gitsigns").setup()
 require("blink.cmp").setup({
   fuzzy = { implementation = "prefer_rust" },
   keymap = {
@@ -141,6 +97,76 @@ require("blink.cmp").setup({
 })
 
 
+-- treesitter
+local langs = { "lua", "rust", "typescript", "javascript", "tsx", "jsx", "python", "c", "cpp", "html", "css" }
+require("nvim-treesitter").install(langs)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = langs,
+  callback = function()
+    vim.treesitter.start()
+    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo[0][0].foldmethod = 'expr'
+  end,
+})
+require("treesitter-context").setup({
+  separator = '-'
+})
+
+
+-- lsp
+local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "clangd" }
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end
+
+
+-- == qol
+vim.cmd.colorscheme("midnight")
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+
+require("nvterm").setup()
+
+require("mini.pick").setup()
+require("mini.surround").setup()
+require("mini.pairs").setup()
+require("mini.statusline").setup()
+require("mini.indentscope").setup()
+require("mini.animate").setup({
+  cursor = {
+    enable = false
+  }
+})
+require("mini.icons").setup()
+require("mini.tabline").setup()
+
+require("orgmode").setup({
+  org_agenda_files = '~/org/**/*',
+  org_default_notes_file = '~/org/inbox.org',
+  org_capture_templates = {
+    n = {
+      description = 'Todo',
+      template = '* %?\\n  %u',
+    },
+    t = {
+      description = 'Todo',
+      template = '* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u',
+      target = '~/org/todos.org',
+    },
+    i = {
+      description = 'Idea',
+      template = '* %? :IDEA:\n  %u',
+      target = '~/org/ideas.org',
+    },
+    p = {
+      description = 'Project',
+      template = '* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:',
+      target = '~/org/projects.org',
+    },
+  }
+})
+
+
 -- Keymaps
 -- ==========================
 local map = vim.keymap.set
@@ -154,10 +180,10 @@ map("n", "<C-l>", "<C-w>l", { desc = "Pane: Right" })
 
 map({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank (motion/selection) to clipboard" })
 map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
-map("n", "<leader>Y", '"+y$', { desc = "Yank to end of line to clipboard" })
+map({ "n", "x" }, "<leader>Y", '"+Y', { desc = "Yank to end of line to clipboard", remap = true })
 map({ "n", "x" }, "<leader>d", '"+d', { desc = "Delete to system clipboard" })
 map("n", "<leader>dd", '"+dd', { desc = "Delete line to system clipboard" })
-map("n", "<leader>D", '"+d$', { desc = "Delete to end of line to system clipboard" })
+map({ "n", "x" }, "<leader>D", '"+D', { desc = "Delete to end of line to system clipboard", remap = true })
 
 
 -- nvterm
@@ -247,13 +273,6 @@ map("n", "<leader>fr", function()
   pick.builtin.resume()
 end, { desc = "Resume last picker (mini.pick)" })
 
-map("n", "<leader>fc", function()
-  pick.builtin.files({
-    cwd = vim.fn.expand("~/.config/nvim"),
-    tool = "fd",
-  })
-end, { desc = "Find config files (mini.pick)" })
-
 map("n", "<leader>ft", function()
   extra.pickers.colorschemes()
 end, { desc = "Pick colorscheme (mini.pick)" })
@@ -261,6 +280,7 @@ end, { desc = "Pick colorscheme (mini.pick)" })
 map("n", "<tab>", "<CMD>bnext<CR>", { desc = "Buffer: Next" })
 map("n", "<S-tab>", "<CMD>bprevious<CR>", { desc = "Buffer: Previous" })
 map("n", "<leader>x", "<CMD>bdelete<CR>", { desc = "Buffer: Close" })
+map("n", "<leader>X", "<CMD>bdelete!<CR>", { desc = "Buffer: Close (force)" })
 -- gitsigns
 local function gitsigns(action)
   return function()
