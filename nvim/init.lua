@@ -60,9 +60,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.pack.add({
   -- main
   { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
-  { src = "https://github.com/saghen/blink.cmp",                       version = vim.version.range('*') },
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 
@@ -96,29 +97,50 @@ require("blink.cmp").setup({
   },
 })
 
+require("conform").setup({
+  default_format_opts = { lsp_format = "fallback" },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
+  formatters_by_ft = {
+    lua = { "stylua" },
+    rust = { "rustfmt" },
+    typescript = { "biome" },
+    javascript = { "biome" },
+    typescriptreact = { "biome" },
+    javascriptreact = { "biome" },
+    html = { "biome" },
+    css = { "biome" },
+  },
+  formatters = {
+    stylua = {
+      command = "stylua",
+      prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+    },
+  },
+})
 
 -- treesitter
 local langs = { "lua", "rust", "typescript", "javascript", "tsx", "jsx", "python", "c", "cpp", "html", "css" }
 require("nvim-treesitter").install(langs)
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = langs,
   callback = function()
     vim.treesitter.start()
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
   end,
 })
 require("treesitter-context").setup({
-  separator = '-'
+  separator = "-",
 })
-
 
 -- lsp
 local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "clangd" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
-
 
 -- == qol
 vim.cmd.colorscheme("midnight")
@@ -134,38 +156,37 @@ require("mini.statusline").setup()
 require("mini.indentscope").setup()
 require("mini.animate").setup({
   cursor = {
-    enable = false
-  }
+    enable = false,
+  },
 })
 require("mini.icons").setup()
 require("mini.tabline").setup()
 
 require("orgmode").setup({
-  org_agenda_files = '~/org/**/*',
-  org_default_notes_file = '~/org/inbox.org',
+  org_agenda_files = "~/org/**/*",
+  org_default_notes_file = "~/org/inbox.org",
   org_capture_templates = {
     n = {
-      description = 'Todo',
-      template = '* %?\\n  %u',
+      description = "Todo",
+      template = "* %?\\n  %u",
     },
     t = {
-      description = 'Todo',
-      template = '* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u',
-      target = '~/org/todos.org',
+      description = "Todo",
+      template = "* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u",
+      target = "~/org/todos.org",
     },
     i = {
-      description = 'Idea',
-      template = '* %? :IDEA:\n  %u',
-      target = '~/org/ideas.org',
+      description = "Idea",
+      template = "* %? :IDEA:\n  %u",
+      target = "~/org/ideas.org",
     },
     p = {
-      description = 'Project',
-      template = '* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:',
-      target = '~/org/projects.org',
+      description = "Project",
+      template = "* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:",
+      target = "~/org/projects.org",
     },
-  }
+  },
 })
-
 
 -- Keymaps
 -- ==========================
@@ -185,14 +206,19 @@ map({ "n", "x" }, "<leader>d", '"+d', { desc = "Delete to system clipboard" })
 map("n", "<leader>dd", '"+dd', { desc = "Delete line to system clipboard" })
 map({ "n", "x" }, "<leader>D", '"+D', { desc = "Delete to end of line to system clipboard", remap = true })
 
-
 -- nvterm
 local terminal = require("nvterm.terminal")
 
 map("t", "<C-x>", "<C-\\><C-n>", { desc = "Terminal: Exit Mode" })
-map({ "n", "t" }, "<A-h>", function() terminal.toggle("horizontal") end, { desc = "Terminal: Horizontal" })
-map({ "n", "t" }, "<A-v>", function() terminal.toggle("vertical") end, { desc = "Terminal: Vertical" })
-map({ "n", "t" }, "<A-i>", function() terminal.toggle("float") end, { desc = "Terminal: Float" })
+map({ "n", "t" }, "<A-h>", function()
+  terminal.toggle("horizontal")
+end, { desc = "Terminal: Horizontal" })
+map({ "n", "t" }, "<A-v>", function()
+  terminal.toggle("vertical")
+end, { desc = "Terminal: Vertical" })
+map({ "n", "t" }, "<A-i>", function()
+  terminal.toggle("float")
+end, { desc = "Terminal: Float" })
 map({ "n", "t" }, "<A-Up>", "<C-\\><C-n><CMD>resize +2<CR>i", { desc = "Terminal: Taller" })
 map({ "n", "t" }, "<A-Down>", "<C-\\><C-n><CMD>resize -2<CR>i", { desc = "Terminal: Shorter" })
 map({ "n", "t" }, "<A-Right>", "<C-\\><C-n><CMD>vertical resize -2<CR>i", { desc = "Terminal: Wider" })
@@ -206,9 +232,10 @@ map("n", "<leader>oc", "<CMD>OrgCapture<CR>", { desc = "Org: Capture" })
 map("n", "<leader>oa", "<CMD>OrgAgenda<CR>", { desc = "Org: Agenda" })
 
 -- lsp
-map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format current buffer" })
+map("n", "<leader>fm", function()
+  require("conform").format()
+end, { desc = "Format current buffer" })
 map("n", "gl", vim.diagnostic.open_float, { desc = "Open diagnostics window" })
-
 
 -- mini
 local extra = require("mini.extra")
@@ -239,9 +266,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "LSP: Rename" }))
 
-    map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, {
-      desc = "LSP: Code Action",
-    }))
+    map(
+      { "n", "x" },
+      "<leader>ca",
+      vim.lsp.buf.code_action,
+      vim.tbl_extend("force", opts, {
+        desc = "LSP: Code Action",
+      })
+    )
   end,
 })
 
