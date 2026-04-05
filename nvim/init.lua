@@ -201,39 +201,39 @@ require("mini.tabline").setup()
 
 -- `obsidian.nvim` registers blink providers during setup and is not safe to
 -- initialize again when this file is re-sourced.
-if not rawget(_G, "Obsidian") then
-  require("obsidian").setup({
-    legacy_commands = false,
-    workspaces = { {
-      name = "vault",
-      path = "~/Documents/vault",
-    } },
-    note_id_func = function(title)
-      if title ~= nil then
-        return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      end
-      return tostring(os.time())
-    end,
-
-    notes_subdir = "notes",
-    new_notes_location = "notes_subdir",
-
-    note = {
-      template = "default.md",
-    },
-
-    templates = {
-      folder = "templates",
-      date_format = "YYYY-MM-DD",
-      time_format = "HH:mm",
-      substitutions = {
-        project = function()
-          return "default-project"
-        end,
-      },
-    },
-  })
-end
+-- if not rawget(_G, "Obsidian") then
+--   require("obsidian").setup({
+--     legacy_commands = false,
+--     workspaces = { {
+--       name = "vault",
+--       path = "~/Documents/vault",
+--     } },
+--     note_id_func = function(title)
+--       if title ~= nil then
+--         return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+--       end
+--       return tostring(os.time())
+--     end,
+--
+--     notes_subdir = "notes",
+--     new_notes_location = "notes_subdir",
+--
+--     note = {
+--       template = "default.md",
+--     },
+--
+--     templates = {
+--       folder = "templates",
+--       date_format = "YYYY-MM-DD",
+--       time_format = "HH:mm",
+--       substitutions = {
+--         project = function()
+--           return "default-project"
+--         end,
+--       },
+--     },
+--   })
+-- end
 
 require("render-markdown").setup()
 
