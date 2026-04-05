@@ -14,6 +14,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
+vim.opt.conceallevel = 2
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -67,11 +68,14 @@ vim.pack.add({
   { src = "https://github.com/rafamadriz/friendly-snippets" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/folke/ts-comments.nvim" },
 
   -- qol
   { src = "https://github.com/dasupradyumna/midnight.nvim" },
   { src = "https://github.com/Nvchad/nvterm" },
-  { src = "https://github.com/nvim-orgmode/orgmode" },
+  { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
 })
 
@@ -121,8 +125,21 @@ require("conform").setup({
 })
 
 -- treesitter
-local treesitter_parsers =
-  { "lua", "rust", "typescript", "javascript", "tsx", "jsx", "python", "c", "cpp", "html", "css" }
+local treesitter_parsers = {
+  "lua",
+  "rust",
+  "typescript",
+  "javascript",
+  "tsx",
+  "jsx",
+  "python",
+  "c",
+  "cpp",
+  "html",
+  "css",
+  "markdown",
+  "markdown_inline",
+}
 local treesitter_filetypes = {
   "lua",
   "rust",
@@ -135,6 +152,8 @@ local treesitter_filetypes = {
   "cpp",
   "html",
   "css",
+  "markdown",
+  "markdown_inline",
 }
 require("nvim-treesitter").install(treesitter_parsers)
 vim.api.nvim_create_autocmd("FileType", {
@@ -149,8 +168,11 @@ require("treesitter-context").setup({
   separator = "-",
 })
 
+require("mason").setup()
+require("ts-comments").setup()
+
 -- lsp
-local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "clangd" }
+local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "tailwindcss", "emmet_language_server", "clangd" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
@@ -159,6 +181,8 @@ end
 vim.cmd.colorscheme("midnight")
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "black" })
 
 require("nvterm").setup()
 
@@ -175,31 +199,43 @@ require("mini.animate").setup({
 require("mini.icons").setup()
 require("mini.tabline").setup()
 
-require("orgmode").setup({
-  org_agenda_files = "~/org/**/*",
-  org_default_notes_file = "~/org/inbox.org",
-  org_capture_templates = {
-    n = {
-      description = "Todo",
-      template = "* %?\\n  %u",
+-- `obsidian.nvim` registers blink providers during setup and is not safe to
+-- initialize again when this file is re-sourced.
+if not rawget(_G, "Obsidian") then
+  require("obsidian").setup({
+    legacy_commands = false,
+    workspaces = { {
+      name = "vault",
+      path = "~/Documents/vault",
+    } },
+    note_id_func = function(title)
+      if title ~= nil then
+        return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      end
+      return tostring(os.time())
+    end,
+
+    notes_subdir = "notes",
+    new_notes_location = "notes_subdir",
+
+    note = {
+      template = "default.md",
     },
-    t = {
-      description = "Todo",
-      template = "* TODO %?\nDEADLINE: %^{Pick deadline}t\nSCHEDULED:\n  %u",
-      target = "~/org/todos.org",
+
+    templates = {
+      folder = "templates",
+      date_format = "YYYY-MM-DD",
+      time_format = "HH:mm",
+      substitutions = {
+        project = function()
+          return "default-project"
+        end,
+      },
     },
-    i = {
-      description = "Idea",
-      template = "* %? :IDEA:\n  %u",
-      target = "~/org/ideas.org",
-    },
-    p = {
-      description = "Project",
-      template = "* PROJECT %?\n:PROPERTIES:\n:CREATED: %u\n:END:",
-      target = "~/org/projects.org",
-    },
-  },
-})
+  })
+end
+
+require("render-markdown").setup()
 
 -- Keymaps
 -- ==========================
