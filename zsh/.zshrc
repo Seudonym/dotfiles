@@ -17,4 +17,7 @@ alias ssh="kitty +kitten ssh"
 
 
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 # eval "$(fnm env --use-on-cd --shell zsh)"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
