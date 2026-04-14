@@ -21,3 +21,8 @@ eval "$(starship init zsh)"
 # eval "$(fnm env --use-on-cd --shell zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word 
+bindkey '^[[3;5~' kill-word 
