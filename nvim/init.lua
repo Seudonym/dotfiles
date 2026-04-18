@@ -72,7 +72,8 @@ vim.pack.add({
   { src = "https://github.com/folke/ts-comments.nvim" },
 
   -- qol
-  { src = "https://github.com/dasupradyumna/midnight.nvim" },
+  -- { src = "https://github.com/dasupradyumna/midnight.nvim" },
+  { src = "https://github.com/RRethy/base16-nvim" },
   { src = "https://github.com/Nvchad/nvterm" },
   { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -179,9 +180,10 @@ for _, server in ipairs(servers) do
 end
 
 -- == qol
-vim.cmd.colorscheme("midnight")
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+require("matugen").setup()
+-- vim.cmd.colorscheme("midnight")
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
 -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "black" })
 
