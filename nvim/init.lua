@@ -114,6 +114,7 @@ require("conform").setup({
     javascript = { "biome" },
     typescriptreact = { "biome" },
     javascriptreact = { "biome" },
+    python = { "black" },
     html = { "biome" },
     css = { "biome" },
     nix = { "nixfmt"},
@@ -174,7 +175,7 @@ require("mason").setup()
 require("ts-comments").setup()
 
 -- lsp
-local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "tailwindcss", "emmet_language_server", "clangd" }
+local servers = { "org", "lua_ls", "ty", "rust_analyzer", "ts_ls", "tailwindcss", "emmet_language_server", "clangd", "basedpyright" }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end
