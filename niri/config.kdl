@@ -92,6 +92,12 @@ output "eDP-2" {
     // automatically.
     position x=960 y=1080
 }
+output "eDP-1" {
+    mode "2560x1440@165.003"
+    scale 1.5
+    transform "normal"
+    position x=960 y=1080
+}
 output "HDMI-A-1" {
     mode "1920x1080@60.000"
     scale 1.0
@@ -338,7 +344,7 @@ window-rule {
   }
 }
 layer-rule {
-    match namespace="^noctalia-toast-.*$"
+    match namespace="^noctalia-(notifications|toast)-.*$"
     block-out-from "screencast"
 }
 
@@ -631,7 +637,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Ctrl+Alt+Delete { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.

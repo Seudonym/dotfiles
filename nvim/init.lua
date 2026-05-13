@@ -72,12 +72,12 @@ vim.pack.add({
   { src = "https://github.com/folke/ts-comments.nvim" },
 
   -- qol
-  -- { src = "https://github.com/dasupradyumna/midnight.nvim" },
   { src = "https://github.com/RRethy/base16-nvim" },
   { src = "https://github.com/Nvchad/nvterm" },
   { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
+  { src = "https://github.com/vyfor/cord.nvim" },
 })
 
 -- Plugin setup
@@ -240,6 +240,7 @@ if not rawget(_G, "Obsidian") then
 end
 
 require("render-markdown").setup()
+require("cord").setup()
 
 -- Keymaps
 -- ==========================
