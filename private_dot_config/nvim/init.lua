@@ -191,16 +191,17 @@ require("matugen").setup()
 require("nvterm").setup()
 
 require("mini.pick").setup()
+require("mini.extra").setup()
 require("mini.surround").setup()
 require("mini.pairs").setup()
-require("mini.statusline").setup()
+require("mini.icons").setup()
 require("mini.indentscope").setup()
 require("mini.animate").setup({
   cursor = {
     enable = false,
   },
 })
-require("mini.icons").setup()
+require("mini.statusline").setup()
 require("mini.tabline").setup()
 
 -- `obsidian.nvim` registers blink providers during setup and is not safe to
@@ -348,7 +349,7 @@ map("n", "<leader>fh", function()
 end, { desc = "Help tags (mini.pick)" })
 
 map("n", "<leader>/", function()
-  pick.builtin.grep_live({ scope = "current" })
+  extra.pickers.buf_lines({ scope = "current" })
 end, { desc = "Search current buffer (mini.pick)" })
 
 map("n", "<leader>fk", function()
