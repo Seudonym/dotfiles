@@ -1,0 +1,74 @@
+{
+  "plugins": {
+    "base16-nvim": {
+      "rev": "4a6ef31745f851e11424a12b63fb3d2a80b2916c",
+      "src": "https://github.com/RRethy/base16-nvim"
+    },
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": ">=0.0.0"
+    },
+    "conform.nvim": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "cord.nvim": {
+      "rev": "0be090969e978f7442870ef227e09eff7bf3480d",
+      "src": "https://github.com/vyfor/cord.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "gitsigns.nvim": {
+      "rev": "0d797daee85366bc242580e352a4f62d67557b84",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "mason.nvim": {
+      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "midnight.nvim": {
+      "rev": "fe062a6f2e5bd77cd8a260f61e6e12789eaf4f13",
+      "src": "https://github.com/dasupradyumna/midnight.nvim"
+    },
+    "mini.nvim": {
+      "rev": "402ee6c6ec8ea44b22330446c8fb4e615fd3953e",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-context": {
+      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "nvterm": {
+      "rev": "9d7ba3b6e368243175d38e1ec956e0476fd86ed9",
+      "src": "https://github.com/Nvchad/nvterm"
+    },
+    "obsidian.nvim": {
+      "rev": "c18b19a08035b57092384f6d28f113bae725baa1",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim",
+      "version": ">=0.0.0"
+    },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "687de727de91a63b0bff9cff4e71d73f9d40fa77",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "ts-comments.nvim": {
+      "rev": "123a9fb12e7229342f807ec9e6de478b1102b041",
+      "src": "https://github.com/folke/ts-comments.nvim"
+    }
+  }
+}
