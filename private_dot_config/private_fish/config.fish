@@ -3,6 +3,9 @@ if status is-interactive
 end
 
 set fish_greeting
+set -gx EDITOR nvim
+set -gx MANPAGER 'nvim +Man!'
+
 
 starship init fish | source
 zoxide init fish | source
