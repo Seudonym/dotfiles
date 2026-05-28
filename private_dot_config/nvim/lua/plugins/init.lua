@@ -59,10 +59,13 @@ vim.pack.add({
   { src = "https://github.com/folke/snacks.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
 
-  { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
-  -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-  { src = "https://github.com/vyfor/cord.nvim" },
   { src = "https://github.com/RRethy/base16-nvim" },
+  { src = "https://github.com/nvim-lualine/lualine.nvim" },
+  { src = "https://github.com/akinsho/bufferline.nvim" },
+
+  -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
+  -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  -- { src = "https://github.com/vyfor/cord.nvim" },
 })
 
 require("plugins.oil")
@@ -71,3 +74,4 @@ require("plugins.blink")
 require("plugins.treesitter")
 require("plugins.telescope")
 require("plugins.snacks")
+require("plugins.lines")
