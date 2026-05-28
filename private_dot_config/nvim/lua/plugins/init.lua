@@ -23,24 +23,6 @@ local function pack_clean()
   end
 end
 
-map = vim.keymap.set
-map("i", "jj", "<Esc>", { desc = "Fast Escape" })
-map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Turn off highlights" })
-map("n", "<C-h>", "<C-w>h", { desc = "Pane: Left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Pane: Down" })
-map("n", "<C-k>", "<C-w>k", { desc = "Pane: Up" })
-map("n", "<C-l>", "<C-w>l", { desc = "Pane: Right" })
-map({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank (motion/selection) to clipboard" })
-map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
-map({ "n", "x" }, "<leader>Y", '"+Y', { desc = "Yank to end of line to clipboard", remap = true })
-map({ "n", "x" }, "<leader>d", '"+d', { desc = "Delete to system clipboard" })
-map("n", "<leader>dd", '"+dd', { desc = "Delete line to system clipboard" })
-map({ "n", "x" }, "<leader>D", '"+D', { desc = "Delete to end of line to system clipboard", remap = true })
-
-map("n", "gl", vim.diagnostic.open_float, { desc = "Open diagnostics window" })
-map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename" })
-map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
-
 vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/stevearc/conform.nvim" },
@@ -61,7 +43,11 @@ vim.pack.add({
 
   { src = "https://github.com/RRethy/base16-nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
-  { src = "https://github.com/akinsho/bufferline.nvim" },
+
+  { src = "https://github.com/nvim-orgmode/orgmode" },
+
+  { src = "https://github.com/folke/which-key.nvim" },
+  { src = "https://github.com/j-hui/fidget.nvim" },
 
   -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
