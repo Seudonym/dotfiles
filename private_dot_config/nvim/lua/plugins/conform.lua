@@ -22,6 +22,6 @@ require("conform").setup({
   },
 })
 
-map("n", "<leader>fm", function()
+vim.keymap.set("n", "<leader>fm", function()
   require("conform").format()
 end, { desc = "Format current buffer" })

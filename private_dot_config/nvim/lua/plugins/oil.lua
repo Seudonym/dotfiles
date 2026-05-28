@@ -1,2 +1,2 @@
 require("oil").setup()
-map("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open Oil" })
+vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open Oil" })

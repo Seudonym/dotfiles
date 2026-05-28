@@ -48,6 +48,7 @@ vim.pack.add({
 
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/j-hui/fidget.nvim" },
+  { src = "https://github.com/folke/flash.nvim" },
 
   -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -61,3 +62,4 @@ require("plugins.treesitter")
 require("plugins.telescope")
 require("plugins.snacks")
 require("plugins.lines")
+require("plugins.flash")
