@@ -317,40 +317,6 @@
             {
                 "name": "eDP-2",
                 "widgets": [
-                    {
-                        "clockColor": "none",
-                        "clockStyle": "digital",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
-                        "roundedCorners": true,
-                        "scale": 1.585858255235272,
-                        "showBackground": true,
-                        "useCustomFont": false,
-                        "x": 1428,
-                        "y": 68
-                    },
-                    {
-                        "hideMode": "visible",
-                        "id": "MediaPlayer",
-                        "roundedCorners": true,
-                        "scale": 0.8500000000000001,
-                        "showAlbumArt": true,
-                        "showBackground": true,
-                        "showButtons": true,
-                        "showVisualizer": true,
-                        "visualizerType": "wave",
-                        "x": 34,
-                        "y": 68
-                    },
-                    {
-                        "id": "Weather",
-                        "roundedCorners": true,
-                        "scale": 0.9407114624505929,
-                        "showBackground": true,
-                        "x": 1428,
-                        "y": 340
-                    }
                 ]
             },
             {
@@ -802,7 +768,7 @@
         "wallhavenCategories": "100",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "minimal dark",
+        "wallhavenQuery": "abstract dark",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "1440",
         "wallhavenResolutionMode": "atleast",
