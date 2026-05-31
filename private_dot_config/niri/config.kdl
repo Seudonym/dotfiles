@@ -1,6 +1,12 @@
 // https://yalter.github.io/niri/Configuration:-Introduction
 prefer-no-csd
 input {
+    keyboard {
+      xkb {
+        layout "us"
+        options "ctrl:swapcaps"
+      }
+    }
     touchpad {
         tap
         natural-scroll

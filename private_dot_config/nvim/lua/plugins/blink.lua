@@ -9,15 +9,16 @@ require("blink.cmp").setup({
   appearance = { nerd_font_variant = "mono" },
 
   completion = {
+    list = { selection = { preselect = false } },
     documentation = {
       auto_show = true,
     },
     menu = {
-      auto_show = false,
+      auto_show = true,
       winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None,BlinkCmpKind:Normal",
     },
     ghost_text = {
-      enabled = true,
+      enabled = false,
       show_with_menu = false,
     },
   },

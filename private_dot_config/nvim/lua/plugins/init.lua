@@ -1,33 +1,10 @@
-local function pack_clean()
-  local active_plugins = {}
-  local unused_plugins = {}
-
-  for _, plugin in ipairs(vim.pack.get()) do
-    active_plugins[plugin.spec.name] = plugin.active
-  end
-
-  for _, plugin in ipairs(vim.pack.get()) do
-    if not active_plugins[plugin.spec.name] then
-      table.insert(unused_plugins, plugin.spec.name)
-    end
-  end
-
-  if #unused_plugins == 0 then
-    print("No unused plugins.")
-    return
-  end
-
-  local choice = vim.fn.confirm("Remove unused plugins?", "&Yes\n&No", 2)
-  if choice == 1 then
-    vim.pack.del(unused_plugins)
-  end
-end
-
 vim.pack.add({
+  -- dev
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/saghen/blink.cmp", version = "1.*" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
   { src = "https://github.com/neogitorg/neogit" },
@@ -49,6 +26,8 @@ vim.pack.add({
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/j-hui/fidget.nvim" },
   { src = "https://github.com/folke/flash.nvim" },
+  { src = "https://github.com/folke/ts-comments.nvim" },
+  { src = "https://github.com/nvim-mini/mini.pairs" },
 
   -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -63,3 +42,5 @@ require("plugins.telescope")
 require("plugins.snacks")
 require("plugins.lines")
 require("plugins.flash")
+require("plugins.dap")
+require("plugins.comments")

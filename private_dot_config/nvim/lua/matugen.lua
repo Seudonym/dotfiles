@@ -3,31 +3,51 @@ local M = {}
 function M.setup()
   require("base16-colorscheme").setup({
     -- Background tones
-    base00 = "#141314", -- Default Background
-    base01 = "#201f20", -- Lighter Background (status bars)
-    base02 = "#2a2a2a", -- Selection Background
-    base03 = "#919095", -- Comments, Invisibles
+    base00 = "#131316", -- Default Background
+    base01 = "#1f1f23", -- Lighter Background (status bars)
+    base02 = "#292a2d", -- Selection Background
+    base03 = "#8f909a", -- Comments, Invisibles
     -- Foreground tones
-    base04 = "#c8c5cb", -- Dark Foreground (status bars)
-    base05 = "#e5e2e2", -- Default Foreground
-    base06 = "#e5e2e2", -- Light Foreground
-    base07 = "#e5e2e2", -- Lightest Foreground
+    base04 = "#c5c6d0", -- Dark Foreground (status bars)
+    base05 = "#e4e2e6", -- Default Foreground
+    base06 = "#e4e2e6", -- Light Foreground
+    base07 = "#e4e2e6", -- Lightest Foreground
     -- Accent colors
     base08 = "#ffb4ab", -- Variables, XML Tags, Errors
-    base09 = "#d1c3c9", -- Integers, Constants
-    base0A = "#c8c5c9", -- Classes, Search Background
-    base0B = "#c7c5ce", -- Strings, Diff Inserted
-    base0C = "#d1c3c9", -- Regex, Escape Chars
-    base0D = "#c7c5ce", -- Functions, Methods
-    base0E = "#c8c5c9", -- Keywords, Storage
+    base09 = "#e2bbdc", -- Integers, Constants
+    base0A = "#c1c6dd", -- Classes, Search Background
+    base0B = "#b3c5ff", -- Strings, Diff Inserted
+    base0C = "#e2bbdc", -- Regex, Escape Chars
+    base0D = "#b3c5ff", -- Functions, Methods
+    base0E = "#c1c6dd", -- Keywords, Storage
     base0F = "#93000a", -- Deprecated, Embedded Tags
   })
 
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#919095", bg = "#141314" })
-  vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#919095", bg = "#141314" })
-  vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#919095", bg = "#141314" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#919095", bg = "#141314" })
-  vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#919095", bg = "#141314" })
+  vim.api.nvim_set_hl(
+    0,
+    "FloatBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopeBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopePromptBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopeResultsBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopePreviewBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
 
   vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Normal" })

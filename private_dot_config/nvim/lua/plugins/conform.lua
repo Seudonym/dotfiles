@@ -12,13 +12,19 @@ require("conform").setup({
     python = { "black" },
     html = { "biome" },
     css = { "biome" },
-    nix = { "nixfmt" },
+    nix = { "alejandra" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
+    cuda = { "clang-format" },
   },
   formatters = {
     stylua = {
       command = "stylua",
       prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
     },
+  },
+  default_format_opts = {
+    lsp_format = "fallback",
   },
 })
 
