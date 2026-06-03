@@ -8,6 +8,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
   { src = "https://github.com/neogitorg/neogit" },
+  { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
 
   -- telescope
@@ -39,6 +40,7 @@ require("plugins.conform")
 require("plugins.blink")
 require("plugins.treesitter")
 require("plugins.telescope")
+require("plugins.git")
 require("plugins.snacks")
 require("plugins.lines")
 require("plugins.flash")
