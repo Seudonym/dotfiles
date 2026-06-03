@@ -18,3 +18,4 @@ alias glog="git log --oneline"
 alias gd="git diff" 
 alias grhh="git reset --hard" 
 alias gp="git push" 
+

@@ -22,16 +22,15 @@ vim.pack.add({
   { src = "https://github.com/RRethy/base16-nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
 
-  { src = "https://github.com/nvim-orgmode/orgmode" },
-
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/j-hui/fidget.nvim" },
   { src = "https://github.com/folke/flash.nvim" },
   { src = "https://github.com/folke/ts-comments.nvim" },
   { src = "https://github.com/nvim-mini/mini.pairs" },
 
-  -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
-  -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  { src = "https://github.com/nvim-orgmode/orgmode" },
   -- { src = "https://github.com/vyfor/cord.nvim" },
 })
 
@@ -46,3 +45,4 @@ require("plugins.lines")
 require("plugins.flash")
 require("plugins.dap")
 require("plugins.comments")
+require("plugins.obsidian")

@@ -80,6 +80,7 @@ local servers = {
   "lua_ls",
   "nixd",
   "neocmake",
+  "org",
 
   "ts_ls",
   "eslint",

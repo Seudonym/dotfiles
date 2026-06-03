@@ -23,18 +23,37 @@ function M.setup()
     base0F = "#93000a", -- Deprecated, Embedded Tags
   })
 
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#8f909a", bg = "#131316" })
-  vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#8f909a", bg = "#131316" })
-  vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#8f909a", bg = "#131316" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#8f909a", bg = "#131316" })
-  vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#8f909a", bg = "#131316" })
+  vim.api.nvim_set_hl(
+    0,
+    "FloatBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopeBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopePromptBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopeResultsBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "TelescopePreviewBorder",
+    { fg = "#8f909a", bg = "#131316" }
+  )
 
   vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "TelescopePreviewTitle" })
-  vim.api.nvim_set_hl(0, "lualine_a_buffers_active", { link = "lualine_a_insert" })
 end
 
 -- Register a signal handler for SIGUSR1 (matugen updates)

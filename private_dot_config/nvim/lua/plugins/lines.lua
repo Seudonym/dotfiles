@@ -23,6 +23,7 @@ require("lualine").setup({
     lualine_a = {
       {
         "buffers",
+        symbols = { alternate_file = "" },
         buffers_color = {
           active = "lualine_a_visual",
           inactive = "lualine_a_normal",
