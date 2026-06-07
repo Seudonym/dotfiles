@@ -26,10 +26,6 @@ require("blink.cmp").setup({
       auto_show = true,
       winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None,BlinkCmpKind:Normal",
     },
-    ghost_text = {
-      enabled = false,
-      show_with_menu = false,
-    },
   },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },

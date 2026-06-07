@@ -1,3 +1,4 @@
+require("direnv").setup()
 require("flash").setup()
 
 vim.keymap.set({ "n", "x", "o" }, "s", function()
@@ -53,7 +54,7 @@ require("snacks").setup({
 ]],
     },
   },
-  -- notifier = { enabled = true },
+  notifier = { enabled = true },
   quickfile = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = true },
@@ -62,7 +63,6 @@ require("snacks").setup({
 })
 
 require("ts-comments").setup()
-require("fidget").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
 

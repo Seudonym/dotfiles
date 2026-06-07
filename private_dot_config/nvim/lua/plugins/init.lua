@@ -24,13 +24,17 @@ vim.pack.add({
   -- extras
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
-  { src = "https://github.com/j-hui/fidget.nvim" },
   { src = "https://github.com/folke/flash.nvim" },
   { src = "https://github.com/folke/ts-comments.nvim" },
   { src = "https://github.com/nvim-mini/mini.pairs" },
   { src = "https://github.com/nvim-mini/mini.surround" },
   { src = "https://github.com/SmiteshP/nvim-navic" },
   { src = "https://github.com/folke/persistence.nvim" },
+  { src = "https://github.com/NotAShelf/direnv.nvim" },
+
+  { src = "https://github.com/folke/noice.nvim" },
+  { src = "https://github.com/MunifTanjim/nui.nvim" },
+  { src = "https://github.com/rcarriga/nvim-notify" },
 
   { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -46,6 +50,7 @@ require("plugins.telescope")
 require("plugins.git")
 require("plugins.lualine")
 
+require("plugins.ui")
 require("plugins.extras")
 
 require("plugins.obsidian")

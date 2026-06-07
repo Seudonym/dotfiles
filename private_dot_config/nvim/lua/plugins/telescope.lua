@@ -12,28 +12,31 @@ require("telescope").setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_ivy(),
+    },
   },
   pickers = {
     find_files = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     live_grep = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     fuzzy_find = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     builtin = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     buffers = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     help_tags = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     oldfiles = {
-      theme = "dropdown",
+      theme = "ivy",
     },
   },
 })

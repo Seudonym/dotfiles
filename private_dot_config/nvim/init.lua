@@ -91,30 +91,6 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 
 -- restart with session saved
 
-local servers = {
-  "lua_ls",
-  "nixd",
-  "neocmake",
-  "marksman",
-
-  "ts_ls",
-  "eslint",
-  "html",
-  "cssls",
-  "tailwindcss",
-  "emmet_language_server",
-  "jsonls",
-  "yamlls",
-
-  "bashls",
-  "clangd",
-  "rust_analyzer",
-  "basedpyright",
-
-  "dockerls",
-}
-vim.lsp.enable(servers)
-
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Fast Escape" })
 vim.keymap.set("n", "<leader>pc", pack_clean, { desc = "Clean vim pack" })
 vim.keymap.set("n", "<Esc>", "<CMD>noh<CR>", { desc = "Turn off highlights" })
@@ -160,5 +136,6 @@ vim.keymap.set("n", "gK", function()
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = "Toggle diagnostic virtual_lines" })
 
+require("lsp")
 require("plugins")
 require("matugen").setup()
