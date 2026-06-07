@@ -5,12 +5,13 @@ end
 set fish_greeting
 set -gx EDITOR nvim
 set -gx MANPAGER 'nvim +Man!'
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' 
 
-
+carapace _carapace | source
 starship init fish | source
-zoxide init fish | source
+# zoxide init fish | source
 
-alias cd=z
+# alias cd=z
 alias gst="git status"
 alias gcommit="git commit"
 alias ga="git add"

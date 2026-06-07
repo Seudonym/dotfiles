@@ -20,10 +20,19 @@ require("telescope").setup({
     live_grep = {
       theme = "dropdown",
     },
+    fuzzy_find = {
+      theme = "dropdown",
+    },
+    builtin = {
+      theme = "dropdown",
+    },
     buffers = {
       theme = "dropdown",
     },
     help_tags = {
+      theme = "dropdown",
+    },
+    oldfiles = {
       theme = "dropdown",
     },
   },

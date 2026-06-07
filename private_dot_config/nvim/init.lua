@@ -23,6 +23,8 @@ vim.opt.inccommand = "split"
 vim.opt.foldlevel = 99
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.fillchars:append({ eob = " " })
+vim.opt.scrolloff = 8
 
 local function pack_clean()
   local active_plugins = {}
@@ -57,6 +59,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- vim.api.nvim_create_autocmd("TermClose", {
+--   callback = function()
+--     -- Get the exit status of the terminal channel
+--     local exit_status = vim.v.event.status
+--     if exit_status == 0 then
+--       -- Safely delete the terminal buffer if it exited successfully
+--       vim.cmd("bdelete")
+--     end
+--   end,
+-- })
+
 -- Kitty autocmds
 local kitty_sync_group = vim.api.nvim_create_augroup("KittySync", { clear = true })
 
@@ -76,11 +89,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
   end,
 })
 
+-- restart with session saved
+
 local servers = {
   "lua_ls",
   "nixd",
   "neocmake",
-  "org",
+  "marksman",
 
   "ts_ls",
   "eslint",
@@ -107,6 +122,17 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Pane: Left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Pane: Down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Pane: Up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Pane: Right" })
+
+vim.keymap.set("n", "n", "nzzzv", { desc = "Centered forward search results and unfold" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Centered backward search results and unfold" })
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Centered scroll down" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Centered scroll down" })
+
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
 vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank (motion/selection) to clipboard" })
 vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
 vim.keymap.set({ "n", "x" }, "<leader>Y", '"+Y', { desc = "Yank to end of line to clipboard", remap = true })
@@ -124,7 +150,7 @@ vim.keymap.set("n", "<Tab>", "<CMD>bnext<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<S-Tab>", "<CMD>bprev<CR>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<leader>x", "<CMD>bdelete<CR>", { desc = "Next Buffer" })
 
-vim.keymap.set("t", "<C-x>", [[<C-\><C-n>]], { noremap = true, desc = "Quit terminal mode" })
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, desc = "Quit terminal mode" })
 vim.keymap.set("n", "<A-v>", "<CMD>vsplit | term<CR>i", { desc = "Vertical terminal split" })
 vim.keymap.set("n", "<A-h>", "<CMD>split | term<CR>i", { desc = "Horizontal terminal split" })
 vim.keymap.set("n", "<A-i>", "<CMD>tab term<CR>i", { desc = "New tab terminal" })

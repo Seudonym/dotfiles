@@ -8,6 +8,15 @@ require("blink.cmp").setup({
   },
   appearance = { nerd_font_variant = "mono" },
 
+  cmdline = {
+    completion = {
+      list = {
+        selection = {
+          preselect = false,
+        },
+      },
+    },
+  },
   completion = {
     list = { selection = { preselect = false } },
     documentation = {
