@@ -1,4 +1,17 @@
-require("direnv").setup()
+require("direnv").setup({
+  autoload_direnv = true,
+  auto_restart_lsp = true,
+  notifications = {
+    silent_autoload = false,
+  },
+})
+-- vim.api.nvim_create_autocmd("User", {
+--   pattern = "DirenvLoaded",
+--   callback = function()
+--     vim.cmd("lsp restart")
+--   end,
+-- })
+
 require("flash").setup()
 
 vim.keymap.set({ "n", "x", "o" }, "s", function()
@@ -39,7 +52,7 @@ require("snacks").setup({
           desc = "config",
           action = "<leader>fc",
         },
-        { icon = "", key = "s", desc = "session", section = "session" },
+        { icon = "", key = "s", desc = "session", action = "<leader>qS" },
         { icon = "", key = "q", desc = "quit", action = ":qa" },
       },
       header = [[
