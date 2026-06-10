@@ -811,7 +811,7 @@
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
-        "useWallhaven": true,
+        "useWallhaven": false,
         "viewMode": "recursive",
         "wallhavenApiKey": "",
         "wallhavenCategories": "100",

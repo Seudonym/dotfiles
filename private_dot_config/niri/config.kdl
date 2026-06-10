@@ -15,12 +15,14 @@ input {
 }
 
 output "eDP-2" {
-    mode "2560x1440@165.003"
+    // mode "2560x1440@165.003"
+    mode "2560x1440@60.000"
     scale 1.5
     transform "normal"
     position x=960 y=1080
 }
 output "eDP-1" {
+    // mode "2560x1440@165.003"
     mode "2560x1440@165.003"
     scale 1.5
     transform "normal"

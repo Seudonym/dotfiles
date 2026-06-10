@@ -6,10 +6,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = "*",
   callback = function()
     require("lualine").setup({
-      -- options = {
-      --   component_separators = "",
-      --   section_separators = "",
-      -- },
+      extensions = { "nvim-tree" },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
@@ -32,7 +29,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             "buffers",
             symbols = { alternate_file = "" },
             buffers_color = {
-              active = "lualine_a_visual",
+              active = "lualine_b_insert",
               inactive = "lualine_a_normal",
             },
           },
