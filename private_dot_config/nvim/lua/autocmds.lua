@@ -7,9 +7,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- close terminal buffer
 vim.api.nvim_create_autocmd("TermClose", {
   callback = function()
-    vim.cmd("bdelete")
+    -- Get the exit status of the terminal channel
+    local exit_status = vim.v.event.status
+    if exit_status == 0 then
+      -- Safely delete the terminal buffer if it exited successfully
+      vim.cmd("bdelete")
+    end
   end,
 })
 
@@ -29,13 +35,5 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
   group = kitty_sync_group,
   callback = function()
     vim.cmd("silent !kitty @ set-spacing padding=default")
-  end,
-})
-
--- Autocommand to close the tree before persistence saves the session
-vim.api.nvim_create_autocmd("User", {
-  pattern = "PersistenceSavePre",
-  callback = function()
-    vim.cmd("NvimTreeClose")
   end,
 })

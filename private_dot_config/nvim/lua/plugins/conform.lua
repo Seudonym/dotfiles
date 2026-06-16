@@ -12,7 +12,7 @@ require("conform").setup({
     python = { "black" },
     html = { "biome" },
     css = { "biome" },
-    nix = { "alejandra" },
+    nix = { "nixfmt" },
     c = { "clang-format" },
     cpp = { "clang-format" },
     cuda = { "clang-format" },

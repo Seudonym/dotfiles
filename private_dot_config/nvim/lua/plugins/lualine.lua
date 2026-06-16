@@ -41,5 +41,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         lualine_z = { "tabs" },
       },
     })
+    vim.opt.cmdheight = 1
   end,
 })

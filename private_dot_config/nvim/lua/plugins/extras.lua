@@ -42,10 +42,10 @@ require("snacks").setup({
     width = 18,
     preset = {
       keys = {
-        { icon = "", key = "f", desc = "find files", action = ":Telescope find_files" },
+        { icon = "", key = "f", desc = "find files", action = "<leader>ff" },
         { icon = "", key = "n", desc = "new file", action = ":ene | startinsert" },
         { icon = "", key = "g", desc = "live grep", action = "<leader>fg" },
-        { icon = "", key = "r", desc = "recent files", action = ":Telescope oldfiles" },
+        { icon = "", key = "r", desc = "recent files", action = ":FzfLua oldfiles" },
         {
           icon = "",
           key = "c",
@@ -99,3 +99,8 @@ end, { desc = "Load last session" })
 vim.keymap.set("n", "<leader>qd", function()
   require("persistence").stop()
 end, { desc = "Do not save session on exit (toggle)" })
+
+require("which-key").setup({
+  preset = "helix",
+  win = { border = "single" },
+})

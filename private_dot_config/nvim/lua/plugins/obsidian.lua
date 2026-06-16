@@ -6,7 +6,7 @@ require("obsidian").setup({
       path = "~/Documents/vault",
     },
   },
-  picker = { name = "telescope.nvim" },
+  picker = { name = "fzf-lua" },
   notes_subdir = "notes",
   note_id_func = require("obsidian.builtin").title_id,
   daily_notes = {

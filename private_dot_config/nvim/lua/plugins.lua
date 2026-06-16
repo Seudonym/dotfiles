@@ -1,7 +1,6 @@
 vim.pack.add({
   -- dev
   { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/nvim-tree/nvim-tree.lua" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/saghen/blink.cmp", version = "1.*" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -12,11 +11,8 @@ vim.pack.add({
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
 
-  -- telescope
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-fzy-native.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  -- fzf
+  { src = "https://github.com/ibhagwan/fzf-lua" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
 
   { src = "https://github.com/RRethy/base16-nvim" },
@@ -34,17 +30,17 @@ vim.pack.add({
   { src = "https://github.com/NotAShelf/direnv.nvim" },
 
   { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
-  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   -- { src = "https://github.com/vyfor/cord.nvim" },
 })
 
 require("plugins.oil")
-require("plugins.tree")
 require("plugins.conform")
 require("plugins.blink")
 require("plugins.dap")
 require("plugins.treesitter")
-require("plugins.telescope")
+-- require("plugins.telescope")
+require("plugins.fzf")
 require("plugins.git")
 require("plugins.lualine")
 

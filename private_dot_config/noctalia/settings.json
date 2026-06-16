@@ -158,14 +158,14 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 450,
+                    "maxWidth": 145,
                     "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
+                    "scrollingMode": "always",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
-                    "showProgressRing": true,
+                    "showProgressRing": false,
                     "showVisualizer": true,
-                    "textColor": "primary",
+                    "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "wave"
                 }
@@ -458,7 +458,7 @@
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -492,10 +492,10 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": true,
-        "radiusRatio": 1,
+        "radiusRatio": 0,
         "reverseScroll": false,
         "scaleRatio": 1,
-        "screenRadiusRatio": 1,
+        "screenRadiusRatio": 0,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,

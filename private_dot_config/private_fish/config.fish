@@ -11,12 +11,13 @@ carapace _carapace | source
 starship init fish | source
 # zoxide init fish | source
 
-# alias cd=z
+alias cd=z
 alias gst="git status"
-alias gcommit="git commit"
+alias gc="git commit"
 alias ga="git add"
 alias glog="git log --oneline"
 alias gd="git diff" 
+alias gds="git diff --staged" 
 alias grhh="git reset --hard" 
 alias gp="git push" 
 

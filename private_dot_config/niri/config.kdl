@@ -14,22 +14,22 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "eDP-2" {
+output "Chimei Innolux Corporation 0x1540 Unknown" {
     // mode "2560x1440@165.003"
     mode "2560x1440@60.000"
     scale 1.5
     transform "normal"
-    position x=960 y=1080
+    position x=214 y=1080
 }
-output "eDP-1" {
-    // mode "2560x1440@165.003"
-    mode "2560x1440@165.003"
-    scale 1.5
-    transform "normal"
-    position x=960 y=1080
-}
+// output "eDP-1" {
+//     // mode "2560x1440@165.003"
+//     mode "2560x1440@165.003"
+//     scale 1.5
+//     transform "normal"
+//     position x=960 y=1080
+// }
 output "HDMI-A-1" {
-    mode "1920x1080@60.000"
+    mode "1920x1080@100.000"
     scale 1.0
     transform "normal"
     position x=0 y=0
@@ -165,7 +165,7 @@ layer-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    // geometry-corner-radius 12
     clip-to-geometry true
 }
 
