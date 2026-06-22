@@ -1,59 +1,29 @@
 local M = {}
 
 function M.setup()
-  require("base16-colorscheme").setup({
-    -- Background tones
-    base00 = "{{colors.surface.default.hex}}", -- Default Background
-    base01 = "{{colors.surface_container.default.hex}}", -- Lighter Background (status bars)
-    base02 = "{{colors.surface_container_high.default.hex}}", -- Selection Background
-    base03 = "{{colors.outline.default.hex}}", -- Comments, Invisibles
-    -- Foreground tones
-    base04 = "{{colors.on_surface_variant.default.hex}}", -- Dark Foreground (status bars)
-    base05 = "{{colors.on_surface.default.hex}}", -- Default Foreground
-    base06 = "{{colors.on_surface.default.hex}}", -- Light Foreground
-    base07 = "{{colors.on_background.default.hex}}", -- Lightest Foreground
-    -- Accent colors
-    base08 = "{{colors.error.default.hex}}", -- Variables, XML Tags, Errors
-    base09 = "{{colors.tertiary.default.hex}}", -- Integers, Constants
-    base0A = "{{colors.secondary.default.hex}}", -- Classes, Search Background
-    base0B = "{{colors.primary.default.hex}}", -- Strings, Diff Inserted
-    base0C = "{{colors.tertiary_fixed_dim.default.hex}}", -- Regex, Escape Chars
-    base0D = "{{colors.primary_fixed_dim.default.hex}}", -- Functions, Methods
-    base0E = "{{colors.secondary_fixed_dim.default.hex}}", -- Keywords, Storage
-    base0F = "{{colors.error_container.default.hex}}", -- Deprecated, Embedded Tags
+  require("mini.base16").setup({
+    palette = {
+      -- Background tones
+      base00 = "{{colors.surface.default.hex}}", -- Default Background
+      base01 = "{{colors.surface_container.default.hex}}", -- Lighter Background (status bars)
+      base02 = "{{colors.surface_container_high.default.hex}}", -- Selection Background
+      base03 = "{{colors.outline.default.hex}}", -- Comments, Invisibles
+      -- Foreground tones
+      base04 = "{{colors.on_surface_variant.default.hex}}", -- Dark Foreground (status bars)
+      base05 = "{{colors.on_surface.default.hex}}", -- Default Foreground
+      base06 = "{{colors.on_surface.default.hex}}", -- Light Foreground
+      base07 = "{{colors.on_background.default.hex}}", -- Lightest Foreground
+      -- Accent colors
+      base08 = "{{colors.error.default.hex}}", -- Variables, XML Tags, Errors
+      base09 = "{{colors.tertiary.default.hex}}", -- Integers, Constants
+      base0A = "{{colors.secondary.default.hex}}", -- Classes, Search Background
+      base0B = "{{colors.primary.default.hex}}", -- Strings, Diff Inserted
+      base0C = "{{colors.tertiary_fixed_dim.default.hex}}", -- Regex, Escape Chars
+      base0D = "{{colors.primary_fixed_dim.default.hex}}", -- Functions, Methods
+      base0E = "{{colors.secondary_fixed_dim.default.hex}}", -- Keywords, Storage
+      base0F = "{{colors.error_container.default.hex}}", -- Deprecated, Embedded Tags
+    },
   })
-
-  vim.api.nvim_set_hl(
-    0,
-    "FloatBorder",
-    { fg = "{{colors.outline.default.hex}}", bg = "{{colors.surface.default.hex}}" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopeBorder",
-    { fg = "{{colors.outline.default.hex}}", bg = "{{colors.surface.default.hex}}" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopePromptBorder",
-    { fg = "{{colors.outline.default.hex}}", bg = "{{colors.surface.default.hex}}" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopeResultsBorder",
-    { fg = "{{colors.outline.default.hex}}", bg = "{{colors.surface.default.hex}}" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopePreviewBorder",
-    { fg = "{{colors.outline.default.hex}}", bg = "{{colors.surface.default.hex}}" }
-  )
-
-  vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "TelescopePreviewTitle" })
 end
 
 -- Register a signal handler for SIGUSR1 (matugen updates)

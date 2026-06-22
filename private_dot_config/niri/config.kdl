@@ -129,14 +129,14 @@ window-rule {
 /* Apps: blur them all without xray for a better look */
 window-rule {
   background-effect {
-    blur true
+    // blur true
     xray false
   }
 }
 
-blur {
-  passes 5
-}
+// blur {
+//   passes 5
+// }
 
 /* Noctalia: blur everywhere without xray for a better look */
 layer-rule {
@@ -165,7 +165,7 @@ layer-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    // geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -452,7 +452,8 @@ environment {
 }
 
 debug {
-  // render-drm-device "/dev/dri/renderD129"
+  render-drm-device "/dev/dri/renderD128"
+  ignore-drm-device "/dev/dri/renderD129"
   honor-xdg-activation-with-invalid-serial
 }
 

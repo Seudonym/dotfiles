@@ -1,29 +1,35 @@
-vim.g.mapleader = " "
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
-vim.opt.guifont = "VictorMono Nerd Font:h12"
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.g.netrw_banner = 0
+
 vim.opt.number = true
-vim.opt.mouse = "a"
-vim.opt.showmode = false
-vim.opt.winborder = "single"
-vim.opt.breakindent = true
-vim.opt.undofile = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.signcolumn = "yes"
-vim.opt.conceallevel = 2
-vim.opt.concealcursor = "nv"
-vim.opt.laststatus = 3
-vim.opt.cmdheight = 0
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.wrap = false
+vim.opt.smartindent = true
 vim.opt.inccommand = "split"
-vim.opt.foldlevel = 99
+
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.fillchars:append({ eob = " " })
-vim.opt.scrolloff = 8
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.laststatus = 3
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.opt.undofile = true
+
+vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
+vim.opt.shortmess:append("c")
+vim.opt.guicursor = ""
+-- vim.opt.scrolloff = 8
+
+vim.opt.colorcolumn = "0"
+vim.opt.signcolumn = "yes"
+vim.o.cmdheight = 0
+vim.opt.termguicolors = true

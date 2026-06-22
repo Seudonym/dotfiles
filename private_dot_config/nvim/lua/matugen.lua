@@ -1,59 +1,29 @@
 local M = {}
 
 function M.setup()
-  require("base16-colorscheme").setup({
-    -- Background tones
-    base00 = "#121316", -- Default Background
-    base01 = "#1f1f23", -- Lighter Background (status bars)
-    base02 = "#292a2d", -- Selection Background
-    base03 = "#8e9099", -- Comments, Invisibles
-    -- Foreground tones
-    base04 = "#c4c6d0", -- Dark Foreground (status bars)
-    base05 = "#e3e2e6", -- Default Foreground
-    base06 = "#e3e2e6", -- Light Foreground
-    base07 = "#e3e2e6", -- Lightest Foreground
-    -- Accent colors
-    base08 = "#ffb4ab", -- Variables, XML Tags, Errors
-    base09 = "#debcdf", -- Integers, Constants
-    base0A = "#bfc6dc", -- Classes, Search Background
-    base0B = "#adc6ff", -- Strings, Diff Inserted
-    base0C = "#debcdf", -- Regex, Escape Chars
-    base0D = "#adc6ff", -- Functions, Methods
-    base0E = "#bfc6dc", -- Keywords, Storage
-    base0F = "#93000a", -- Deprecated, Embedded Tags
+  require("mini.base16").setup({
+    palette = {
+      -- Background tones
+      base00 = "#131313", -- Default Background
+      base01 = "#1f1f1f", -- Lighter Background (status bars)
+      base02 = "#2a2a2a", -- Selection Background
+      base03 = "#919191", -- Comments, Invisibles
+      -- Foreground tones
+      base04 = "#c6c6c6", -- Dark Foreground (status bars)
+      base05 = "#e2e2e2", -- Default Foreground
+      base06 = "#e2e2e2", -- Light Foreground
+      base07 = "#e2e2e2", -- Lightest Foreground
+      -- Accent colors
+      base08 = "#ffb4ab", -- Variables, XML Tags, Errors
+      base09 = "#bfcc9b", -- Integers, Constants
+      base0A = "#e1c1a3", -- Classes, Search Background
+      base0B = "#ffb86e", -- Strings, Diff Inserted
+      base0C = "#bfcc9b", -- Regex, Escape Chars
+      base0D = "#ffb86e", -- Functions, Methods
+      base0E = "#e1c1a3", -- Keywords, Storage
+      base0F = "#93000a", -- Deprecated, Embedded Tags
+    },
   })
-
-  vim.api.nvim_set_hl(
-    0,
-    "FloatBorder",
-    { fg = "#8e9099", bg = "#121316" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopeBorder",
-    { fg = "#8e9099", bg = "#121316" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopePromptBorder",
-    { fg = "#8e9099", bg = "#121316" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopeResultsBorder",
-    { fg = "#8e9099", bg = "#121316" }
-  )
-  vim.api.nvim_set_hl(
-    0,
-    "TelescopePreviewBorder",
-    { fg = "#8e9099", bg = "#121316" }
-  )
-
-  vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "TelescopePreviewTitle" })
 end
 
 -- Register a signal handler for SIGUSR1 (matugen updates)

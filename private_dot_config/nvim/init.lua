@@ -1,8 +1,6 @@
-require("options")
-require("lsp")
-require("autocmds")
-require("plugins")
-require("keymaps")
-require("matugen").setup()
---
--- vim.cmd("colorscheme base16-kanagawa")
+require('options')
+require('autocmds')
+require('keymaps')
+require('plugins')
+
+vim.cmd("colorscheme oxocarbon")
