@@ -10,24 +10,25 @@ capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completi
 vim.lsp.config("*", { capabilities = capabilities })
 
 vim.lsp.enable({
-  "lua_ls",
-  "nixd",
-  "neocmake",
-  "marksman",
+	"lua_ls",
+	"nixd",
+	"neocmake",
+	"marksman",
+	"tinymist",
 
-  "ts_ls",
-  "eslint",
-  "html",
-  "cssls",
-  "tailwindcss",
-  "emmet_language_server",
-  "jsonls",
-  "yamlls",
+	"ts_ls",
+	"eslint",
+	"html",
+	"cssls",
+	"tailwindcss",
+	"emmet_language_server",
+	"jsonls",
+	"yamlls",
 
-  "bashls",
-  "clangd",
-  "rust_analyzer",
-  "basedpyright",
+	"bashls",
+	"clangd",
+	"rust_analyzer",
+	"basedpyright",
 
-  "dockerls",
+	"dockerls",
 })

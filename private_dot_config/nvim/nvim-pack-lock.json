@@ -1,5 +1,10 @@
 {
   "plugins": {
+    "auto-direnv.nvim": {
+      "rev": "663c25948d4b8689e048834db1bd1bf17ad4512f",
+      "src": "https://github.com/seudonym/auto-direnv.nvim",
+      "version": "'dev'"
+    },
     "auto-session": {
       "rev": "6cde3874a9283c2db55627acca5f28e4fa402320",
       "src": "https://github.com/rmagatti/auto-session"
@@ -22,11 +27,11 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.nvim": {
-      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
+      "rev": "c594be5b095204e99473825ec2dee872e7409a4d",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
-      "rev": "828dd073e6ad180fdb5c1603c7ad7f68a384c40b",
+      "rev": "43ea1a0854052e583f647e0b35879f0158a70a78",
       "src": "https://github.com/NeoGitOrg/neogit"
     },
     "nvim-lspconfig": {
@@ -41,6 +46,10 @@
     "nvim-treesitter-context": {
       "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "obsidian.nvim": {
+      "rev": "092e51064a526554c22dd71129d84714d14557df",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "oxocarbon.nvim": {
       "rev": "cf49e389c22dab56224e43ae16422ddcd5b61b28",

@@ -26,13 +26,18 @@
    "launcher_window": {
       "opacity": 0.7,
       "client_side_decorations": {
-         "enabled": false
+         "enabled": true
       },
       "layer_shell": {
          "layer": "overlay"
       }
    },
    "providers": {
+      "clipboard": {
+         "preferences": {
+            "monitoring": true
+         }
+      },
       "system": {
          "entrypoints": {
             "run": {
